@@ -1,0 +1,53 @@
+1. O Molde Principal (Abstração e Herança)
+Crie uma classe base chamada Veiculo. Ela não deve ser usada para criar um objeto "genérico", mas sim para servir de regra para os outros.
+
+Instrução: Defina que todo veículo precisa ter um modelo e um motor.
+
+Herança: Crie duas classes específicas: Carro e Caminhao. Elas devem herdar tudo de Veiculo, mas cada uma terá seu próprio jeito de calcular o consumo de combustível (aqui entra o Polimorfismo).
+
+------------------------------------------------------------
+
+2. A Proteção dos Dados (Encapsulamento)
+Não deixe que qualquer um mude o nome do modelo para um texto vazio ou um valor absurdo.
+
+Instrução: Transforme o atributo modelo em algo privado (ou protegido).
+
+Getters e Setters: Crie métodos que "vigiam" esse atributo. O Getter apenas entrega o nome, e o Setter só permite mudar o nome se a nova palavra tiver pelo menos 3 letras, por exemplo.
+
+------------------------------------------------------------
+
+3. O Coração do Veículo (Composição)
+O motor é parte integrante do carro. Se o carro vai para o ferro-velho, o motor vai junto.
+
+Instrução: Dentro do "nascimento" (construtor) do Veiculo, você deve dar a ordem para criar um novo objeto Motor.
+
+Regra: O usuário não entrega um motor pronto; o Veiculo fabrica o seu próprio motor assim que é criado.
+
+------------------------------------------------------------
+
+4. O Condutor (Agregação)
+Um motorista pode trabalhar em vários veículos e continua existindo mesmo se a empresa vender o caminhão.
+
+Instrução: Crie uma classe separada chamada Motorista.
+
+Regra de Associação: No seu Veiculo, deixe um espaço reservado para um motorista. Mas você não o cria lá dentro. Você deve "estacionar" um objeto Motorista que já foi criado fora do veículo.
+
+------------------------------------------------------------
+
+5. Ferramentas de Controle (Métodos Estáticos)
+Você precisa de uma forma de contar quantos veículos a empresa tem no total, sem precisar perguntar para um carro específico.
+
+Instrução: Crie um Método Estático na classe Veiculo. Ele deve acessar uma variável global da classe que aumenta toda vez que um novo carro ou caminhão nasce.
+
+O Fluxo de Teste que você deve seguir:
+Crie um motorista (ele está "em casa", sem carro ainda).
+
+Crie um caminhão (neste momento, o caminhão automaticamente "fabrica" seu próprio motor interno).
+
+Vincule o motorista ao caminhão (agora o motorista subiu na cabine).
+
+Tente mudar o nome do caminhão usando o seu Setter para ver se a validação funciona.
+
+Chame o cálculo de autonomia e veja o Polimorfismo agir (o caminhão deve dar um resultado diferente do carro).
+
+Verifique o contador da frota usando o seu Método Estático.
